@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js')
+    .then(() => console.log('Service Worker 注册成功'))
+    .catch(err => console.log('Service Worker 注册失败', err));
+}
+</script><!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
