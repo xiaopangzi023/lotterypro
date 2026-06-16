@@ -1,32 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>彩票选号器</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LotteryPro</title>
+
+<link rel="manifest" href="manifest.json">
+
 <style>
-body{font-family:sans-serif;padding:15px}
-input,button{width:100%;padding:10px;margin:5px 0}
-pre{background:#f2f2f2;padding:10px}
+body{
+font-family:sans-serif;
+padding:15px;
+background:#f5f5f5;
+}
+
+.card{
+background:#fff;
+padding:15px;
+border-radius:10px;
+}
+
+input,select,button{
+width:100%;
+padding:10px;
+margin-top:10px;
+box-sizing:border-box;
+}
+
+button{
+background:#2196F3;
+color:white;
+border:none;
+border-radius:5px;
+}
+
+pre{
+white-space:pre-wrap;
+}
 </style>
+
 </head>
+
 <body>
 
-<h2>双色球 / 大乐透选号器</h2>
+<div class="card">
+
+<h2>LotteryPro选号器</h2>
 
 <select id="mode">
-<option value="ssq">双色球</option>
-<option value="dlt">大乐透</option>
+
+<option value="ssq">
+双色球
+</option>
+
+<option value="dlt">
+大乐透
+</option>
+
 </select>
 
-<input id="danma" placeholder="胆码 例如：3,20,33">
-<input id="kill" placeholder="杀号 例如：4,17">
-<input id="count" type="number" value="10">
+<input
+id="danma"
+placeholder="胆码 3,20,33">
 
-<button onclick="gen()">生成号码</button>
+<input
+id="kill"
+placeholder="杀号 4,17,29">
 
-<pre id="out"></pre>
+<input
+id="count"
+type="number"
+value="10">
+
+<button onclick="generate()">
+生成号码
+</button>
+
+<pre id="result"></pre>
+
+</div>
 
 <script src="app.js"></script>
+
+<script>
+if ('serviceWorker' in navigator) {
+navigator.serviceWorker.register('./sw.js')
+}
+</script>
+
 </body>
 </html>
