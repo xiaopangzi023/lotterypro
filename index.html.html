@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>彩票选号器</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font-family:sans-serif;padding:15px}
+input,button{width:100%;padding:10px;margin:5px 0}
+pre{background:#f2f2f2;padding:10px}
+</style>
+</head>
+<body>
+
+<h2>双色球 / 大乐透选号器</h2>
+
+<select id="mode">
+<option value="ssq">双色球</option>
+<option value="dlt">大乐透</option>
+</select>
+
+<input id="danma" placeholder="胆码 例如：3,20,33">
+<input id="kill" placeholder="杀号 例如：4,17">
+<input id="count" type="number" value="10">
+
+<button onclick="gen()">生成号码</button>
+
+<pre id="out"></pre>
+
+<script src="app.js"></script>
+</body>
+</html>
