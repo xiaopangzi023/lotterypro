@@ -1,4 +1,3 @@
-小刘🐾: 06-16 18:02:49
 function nums(v){
 return v.split(',')
 .map(x=>parseInt(x))
