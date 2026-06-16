@@ -1,4 +1,0 @@
-function generate() {
-    document.getElementById("result").innerHTML =
-        "LotteryPro 已成功运行！";
-}
