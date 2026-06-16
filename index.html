@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LotteryPro 彩票选号</title>
+  <!-- 引用样式 -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- 引用 Manifest（PWA） -->
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+  <h1>🎯 LotteryPro</h1>
+
+  <label>玩法模式：
+    <select id="mode">
+      <option value="ssq">双色球 (33红+16蓝)</option>
+      <option value="dlt">大乐透 (35前+12后)</option>
+    </select>
+  </label>
+
+  <label>胆码（用逗号分隔，如 1,5,12）：
+    <input type="text" id="danma" value="1,5" />
+  </label>
+
+  <label>杀号（用逗号分隔，如 3,8,22）：
+    <input type="text" id="kill" value="" />
+  </label>
+
+  <label>注数：
+    <input type="number" id="count" value="5" min="1" />
+  </label>
+
+  <button id="generateBtn">✨ 生成选号</button>
+
+  <h3>结果：</h3>
+  <pre id="result">等待生成…</pre>
+
+  <!-- 引入核心脚本 -->
+  <script src="app.js"></script>
+
+  <!-- 绑定生成事件 -->
+  <script>
+    document.getElementById('generateBtn').addEventListener('click', generate);
+    // 可选：页面加载时自动生成一次
+    // window.onload = generate;
+  </script>
+
+  <!-- 注册 Service Worker（PWA 离线支持，非必须） -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js')
+        .then(() => console.log('SW 注册成功'))
+        .catch(err => console.warn('SW 注册失败', err));
+    }
+  </script>
+</body>
+</html>
